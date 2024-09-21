@@ -4,7 +4,7 @@ $ErrorActionPreference = 'Stop'
 
 $IsInstalled = $false
 $ArchiveName = "haze-x86_64-pc-windows-msvc"
-$DownloadUrl = "https://github.com/arexon/haze/releases/latest/download/${ArchiveName}"
+$DownloadUrl = "https://github.com/arexon/haze/releases/latest/download/${ArchiveName}.zip"
 $BinDir = "${Home}\.haze"
 $BinArchive = "${BinDir}\${ArchiveName}"
 
