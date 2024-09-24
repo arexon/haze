@@ -27,7 +27,7 @@ fn main() {
         #[cfg(unix)]
         let com_mojang = com_mojang::get_and_check()?;
         #[cfg(windows)]
-        let com_mojang = com_mojang::get_and_check(&cli.minecraft_version.0)?;
+        let com_mojang = com_mojang::get_and_check(&cli.minecraft_version)?;
 
         let wm = WorldManager::new(config.worlds, com_mojang)?;
         match cli.commands {
