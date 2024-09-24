@@ -1,8 +1,7 @@
 use anstyle::{AnsiColor, Color, Style};
-use clap::{builder, Parser, Subcommand};
-
 #[cfg(windows)]
 use clap::ValueEnum;
+use clap::{builder, Parser, Subcommand};
 
 #[cfg(windows)]
 use crate::com_mojang::MinecraftVersion;
@@ -18,7 +17,7 @@ pub struct Cli {
     /// an arbitrary path, set the `COM_MOJANG` environment variable instead
     #[cfg(windows)]
     #[arg(short = 'm', long, value_enum, default_value = "stable")]
-    pub minecraft_version: MinecraftVersionWrapper,
+    pub minecraft_version: MinecraftVersion,
 
     #[command(subcommand)]
     pub commands: Commands,
@@ -51,21 +50,13 @@ pub enum Commands {
 }
 
 #[cfg(windows)]
-#[derive(Clone)]
-pub struct MinecraftVersionWrapper(pub MinecraftVersion);
-
-#[cfg(windows)]
-impl ValueEnum for MinecraftVersionWrapper {
+impl ValueEnum for MinecraftVersion {
     fn value_variants<'a>() -> &'a [Self] {
-        &[
-            Self(MinecraftVersion::Stable),
-            Self(MinecraftVersion::Preview),
-            Self(MinecraftVersion::Education),
-        ]
+        &[Self::Stable, Self::Preview, Self::Education]
     }
 
     fn to_possible_value(&self) -> Option<builder::PossibleValue> {
-        Some(builder::PossibleValue::new(self.0.as_str()))
+        Some(builder::PossibleValue::new(self.as_str()))
     }
 }
 

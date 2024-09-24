@@ -29,11 +29,11 @@ fn main() {
         #[cfg(windows)]
         let com_mojang = com_mojang::get_and_check(&cli.minecraft_version.0)?;
 
-        let haze = WorldManager::new(config.worlds, com_mojang)?;
+        let wm = WorldManager::new(config.worlds, com_mojang)?;
         match cli.commands {
-            Commands::Export { names, overwrite } => haze.export(names, overwrite)?,
-            Commands::Import { names } => haze.import(names)?,
-            Commands::List => haze.list()?,
+            Commands::Export { names, overwrite } => wm.export(names, overwrite)?,
+            Commands::Import { names } => wm.import(names)?,
+            Commands::List => wm.list()?,
         }
 
         Ok(())
