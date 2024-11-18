@@ -291,7 +291,7 @@ fn import() {
     ----- stdout -----
 
     ----- stderr -----
-    info: imoprted `com.mojang/minecraftWorlds/foo` to `worlds/foo`
+    info: imported `com.mojang/minecraftWorlds/foo` to `worlds/foo`
     "#);
 
     #[cfg(windows)]
@@ -301,7 +301,7 @@ fn import() {
     ----- stdout -----
 
     ----- stderr -----
-    info: imoprted `com.mojang\minecraftWorlds\foo` to `worlds\foo`
+    info: imported `com.mojang\minecraftWorlds\foo` to `worlds\foo`
     "#);
 
     let imported_world = test.temp_dir.join("worlds").join(world_to_import);
