@@ -151,7 +151,7 @@ impl WorldManager {
             })?;
             copy_world(&from, &to)?;
 
-            log::info!("imoprted `{}` to `{}`", from.display(), to.display());
+            log::info!("imported `{}` to `{}`", from.display(), to.display());
         }
 
         Ok(())
